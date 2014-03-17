@@ -1,11 +1,9 @@
 {
-  "curly" : true,
-  "eqeqeq": true,
-  "newcap": true,
-  "noarg" : true,
-  "node"  : true,
-  "nonbsp": true,
-  "strict": true,
-  "undef" : true,
-  "unused": true
+  "eqeqeq"  : true,
+  "latedef" : true,
+  "node"    : true,
+  "nonbsp"  : true,
+  "strict"  : true,
+  "undef"   : true,
+  "unused"  : true
 }

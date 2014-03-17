@@ -3,13 +3,20 @@
   "boss"     : true,
   "browser"  : true,
   "eqeqeq"   : true,
-  "expr"     : true,
   "forin"    : true,
   "jquery"   : true,
   "latedef"  : true,
   "laxbreak" : true,
+  "node"     : true,
   "nonbsp"   : true,
   "strict"   : true,
   "undef"    : true,
-  "unused"   : true
+  "unused"   : true,
+  "globals"  : {
+    "equal"  : true,
+    "ok"     : true,
+    "start"  : true,
+    "stop"   : true,
+    "test"   : true
+  }
 }
