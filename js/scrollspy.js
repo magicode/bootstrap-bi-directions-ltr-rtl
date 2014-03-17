@@ -39,11 +39,10 @@
   }
 
   ScrollSpy.prototype.refresh = function () {
-    var offsetMethod = this.$element[0] == window ? 'offset' : 'position'
+    var offsetMethod = this.$element[0] === window ? 'offset' : 'position'
 
     this.offsets = $([])
     this.targets = $([])
-
     var self     = this
 
     this.$body
@@ -57,7 +56,7 @@
         return ($href
           && $href.length
           && $href.is(':visible')
-          && [[ $href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href ]]) || null
+          && [[$href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href]]) || null
       })
       .sort(function (a, b) { return a[0] - b[0] })
       .each(function () {
@@ -76,18 +75,18 @@
     var i
 
     if (scrollTop >= maxScroll) {
-      return activeTarget != (i = targets.last()[0]) && this.activate(i)
+      return activeTarget !== (i = targets.last()[0]) && this.activate(i)
     }
 
     if (activeTarget && scrollTop <= offsets[0]) {
-      return activeTarget != (i = targets[0]) && this.activate(i)
+      return activeTarget !== (i = targets[0]) && this.activate(i)
     }
 
     for (i = offsets.length; i--;) {
-      activeTarget != targets[i]
+      activeTarget !== targets[i]
         && scrollTop >= offsets[i]
         && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-        && this.activate( targets[i] )
+        && this.activate(targets[i])
     }
   }
 
@@ -123,10 +122,10 @@
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.scrollspy')
-      var options = typeof option == 'object' && option
+      var options = typeof option === 'object' && option
 
       if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option === 'string') data[option]()
     })
   }
 

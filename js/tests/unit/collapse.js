@@ -1,4 +1,5 @@
 $(function () {
+  'use strict';
 
   module('collapse plugin')
 
@@ -7,11 +8,11 @@ $(function () {
   })
 
   module('collapse', {
-    setup: function() {
+    setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
       $.fn.bootstrapCollapse = $.fn.collapse.noConflict()
     },
-    teardown: function() {
+    teardown: function () {
       $.fn.collapse = $.fn.bootstrapCollapse
       delete $.fn.bootstrapCollapse
     }
@@ -22,7 +23,7 @@ $(function () {
   })
 
   test('should return element', function () {
-    ok($(document.body).bootstrapCollapse()[0] == document.body, 'document.body returned')
+    ok($(document.body).bootstrapCollapse()[0] === document.body, 'document.body returned')
   })
 
   test('should show a collapsed element', function () {
@@ -57,7 +58,7 @@ $(function () {
     stop()
     $('<div class="collapse" style="height: 0px"/>')
       .on('show.bs.collapse', function () {
-        ok(this.style.height == '0px')
+        ok(this.style.height === '0px')
       })
       .on('shown.bs.collapse', function () {
         ok(this.style.height === '')

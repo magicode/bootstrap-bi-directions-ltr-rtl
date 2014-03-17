@@ -47,7 +47,7 @@
 
     $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
     $tip.find('.popover-content').empty()[ // we use append for html objects to maintain js events
-      this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
+      this.options.html ? (typeof content === 'string' ? 'html' : 'append') : 'text'
     ](content)
 
     $tip.removeClass('fade top bottom left right in')
@@ -66,7 +66,7 @@
     var o  = this.options
 
     return $e.attr('data-content')
-      || (typeof o.content == 'function' ?
+      || (typeof o.content === 'function' ?
             o.content.call($e[0]) :
             o.content)
   }
@@ -88,11 +88,11 @@
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.popover')
-      var options = typeof option == 'object' && option
+      var options = typeof option === 'object' && option
 
-      if (!data && option == 'destroy') return
+      if (!data && option === 'destroy') return
       if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option === 'string') data[option]()
     })
   }
 

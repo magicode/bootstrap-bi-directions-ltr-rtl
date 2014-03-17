@@ -1,4 +1,5 @@
 $(function () {
+  'use strict';
 
   module('popover plugin')
 
@@ -8,11 +9,11 @@ $(function () {
   })
 
   module('popover', {
-    setup: function() {
+    setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
       $.fn.bootstrapPopover = $.fn.popover.noConflict()
     },
-    teardown: function() {
+    teardown: function () {
       $.fn.popover = $.fn.bootstrapPopover
       delete $.fn.bootstrapPopover
     }
@@ -24,7 +25,7 @@ $(function () {
 
   test('should return element', function () {
     var div = $('<div></div>')
-    ok(div.bootstrapPopover() == div, 'document.body returned')
+    ok(div.bootstrapPopover() === div, 'document.body returned')
   })
 
   test('should render popover element', function () {
@@ -73,7 +74,7 @@ $(function () {
   test('should not duplicate HTML object', function () {
     $.support.transition = false
 
-    $div = $('<div>').html('loves writing tests （╯°□°）╯︵ ┻━┻')
+    var $div = $('<div>').html('loves writing tests （╯°□°）╯︵ ┻━┻')
 
     var popover = $('<a href="#">@fat</a>')
       .appendTo('#qunit-fixture')
@@ -156,15 +157,15 @@ $(function () {
   })
 
   test('should destroy popover', function () {
-    var popover = $('<div/>').bootstrapPopover({trigger: 'hover'}).on('click.foo', function () {})
+    var popover = $('<div/>').bootstrapPopover({ trigger: 'hover' }).on('click.foo', function () {})
     ok(popover.data('bs.popover'), 'popover has data')
     ok($._data(popover[0], 'events').mouseover && $._data(popover[0], 'events').mouseout, 'popover has hover event')
-    ok($._data(popover[0], 'events').click[0].namespace == 'foo', 'popover has extra click.foo event')
+    ok($._data(popover[0], 'events').click[0].namespace === 'foo', 'popover has extra click.foo event')
     popover.bootstrapPopover('show')
     popover.bootstrapPopover('destroy')
     ok(!popover.hasClass('in'), 'popover is hidden')
     ok(!popover.data('popover'), 'popover does not have data')
-    ok($._data(popover[0],'events').click[0].namespace == 'foo', 'popover still has click.foo')
+    ok($._data(popover[0], 'events').click[0].namespace === 'foo', 'popover still has click.foo')
     ok(!$._data(popover[0], 'events').mouseover && !$._data(popover[0], 'events').mouseout, 'popover does not have any events')
   })
 

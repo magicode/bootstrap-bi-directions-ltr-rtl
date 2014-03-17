@@ -1,4 +1,5 @@
 $(function () {
+  'use strict';
 
   module('modal plugin')
 
@@ -8,11 +9,11 @@ $(function () {
   })
 
   module('modal', {
-    setup: function() {
+    setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
       $.fn.bootstrapModal = $.fn.modal.noConflict()
     },
-    teardown: function() {
+    teardown: function () {
       $.fn.modal = $.fn.bootstrapModal
       delete $.fn.bootstrapModal
     }
@@ -24,7 +25,7 @@ $(function () {
 
   test('should return element', function () {
     var div = $('<div id="modal-test"></div>')
-    ok(div.bootstrapModal() == div, 'document.body returned')
+    ok(div.bootstrapModal() === div, 'document.body returned')
     $('#modal-test').remove()
   })
 

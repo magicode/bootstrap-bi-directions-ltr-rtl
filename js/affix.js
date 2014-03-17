@@ -57,16 +57,16 @@
     var offsetTop    = offset.top
     var offsetBottom = offset.bottom
 
-    if (typeof offset != 'object')         offsetBottom = offsetTop = offset
-    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
-    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
+    if (typeof offset !== 'object')         offsetBottom = offsetTop = offset
+    if (typeof offsetTop === 'function')    offsetTop    = offset.top(this.$element)
+    if (typeof offsetBottom === 'function') offsetBottom = offset.bottom(this.$element)
 
-    var affix = this.unpin   != null && (scrollTop + this.unpin <= position.top) ? false :
-                offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ? 'bottom' :
-                offsetTop    != null && (scrollTop <= offsetTop) ? 'top' : false
+    var affix = this.unpin   !== null && (scrollTop + this.unpin <= position.top) ? false :
+                offsetBottom !== null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ? 'bottom' :
+                offsetTop    !== null && (scrollTop <= offsetTop) ? 'top' : false
 
     if (this.affixed === affix) return
-    if (this.unpin != null) this.$element.css('top', '')
+    if (this.unpin !== null) this.$element.css('top', '')
 
     var affixType = 'affix' + (affix ? '-' + affix : '')
     var e         = $.Event(affixType + '.bs.affix')
@@ -76,14 +76,14 @@
     if (e.isDefaultPrevented()) return
 
     this.affixed = affix
-    this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null
+    this.unpin = affix === 'bottom' ? this.getPinnedOffset() : null
 
     this.$element
       .removeClass(Affix.RESET)
       .addClass(affixType)
       .trigger($.Event(affixType.replace('affix', 'affixed')))
 
-    if (affix == 'bottom') {
+    if (affix === 'bottom') {
       this.$element.offset({ top: scrollHeight - this.$element.height() - offsetBottom })
     }
   }
@@ -96,10 +96,10 @@
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.affix')
-      var options = typeof option == 'object' && option
+      var options = typeof option === 'object' && option
 
       if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
-      if (typeof option == 'string') data[option]()
+      if (typeof option === 'string') data[option]()
     })
   }
 

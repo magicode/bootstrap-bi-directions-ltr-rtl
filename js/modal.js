@@ -136,7 +136,7 @@
   Modal.prototype.escape = function () {
     if (this.isShown && this.options.keyboard) {
       this.$element.on('keyup.dismiss.bs.modal', $.proxy(function (e) {
-        e.which == 27 && this.hide()
+        e.which === 27 && this.hide()
       }, this))
     } else if (!this.isShown) {
       this.$element.off('keyup.dismiss.bs.modal')
@@ -168,7 +168,7 @@
 
       this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
         if (e.target !== e.currentTarget) return
-        this.options.backdrop == 'static'
+        this.options.backdrop === 'static'
           ? this.$element[0].focus.call(this.$element[0])
           : this.hide.call(this)
       }, this))
@@ -188,7 +188,7 @@
     } else if (!this.isShown && this.$backdrop) {
       this.$backdrop.removeClass('in')
 
-      var callbackRemove = function() {
+      var callbackRemove = function () {
         that.removeBackdrop()
         callback && callback()
       }
@@ -234,10 +234,10 @@
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.modal')
-      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
+      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option === 'object' && option)
 
       if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
-      if (typeof option == 'string') data[option](_relatedTarget)
+      if (typeof option === 'string') data[option](_relatedTarget)
       else if (options.show) data.show(_relatedTarget)
     })
   }

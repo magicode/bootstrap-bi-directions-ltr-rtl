@@ -1,4 +1,5 @@
 $(function () {
+  'use strict';
 
   module('carousel plugin')
 
@@ -7,11 +8,11 @@ $(function () {
   })
 
   module('carousel', {
-    setup: function() {
+    setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
       $.fn.bootstrapCarousel = $.fn.carousel.noConflict()
     },
-    teardown: function() {
+    teardown: function () {
       $.fn.carousel = $.fn.bootstrapCarousel
       delete $.fn.bootstrapCarousel
     }
@@ -22,7 +23,7 @@ $(function () {
   })
 
   test('should return element', function () {
-    ok($(document.body).bootstrapCarousel()[0] == document.body, 'document.body returned')
+    ok($(document.body).bootstrapCarousel()[0] === document.body, 'document.body returned')
   })
 
   test('should not fire slide when slide is prevented', function () {
@@ -121,19 +122,19 @@ $(function () {
 
     template.appendTo('body')
     $('[data-slide]').first().click()
-    ok($('#myCarousel').data('bs.carousel').options.interval == 1814)
+    ok($('#myCarousel').data('bs.carousel').options.interval === 1814)
     $('#myCarousel').remove()
 
     template.appendTo('body').attr('data-modal', 'foobar')
     $('[data-slide]').first().click()
-    ok($('#myCarousel').data('bs.carousel').options.interval == 1814, 'even if there is an data-modal attribute set')
+    ok($('#myCarousel').data('bs.carousel').options.interval === 1814, 'even if there is an data-modal attribute set')
     $('#myCarousel').remove()
 
     template.appendTo('body')
     $('[data-slide]').first().click()
     $('#myCarousel').attr('data-interval', 1860)
     $('[data-slide]').first().click()
-    ok($('#myCarousel').data('bs.carousel').options.interval == 1814, 'attributes should be read only on initialization')
+    ok($('#myCarousel').data('bs.carousel').options.interval === 1814, 'attributes should be read only on initialization')
     $('#myCarousel').remove()
 
     template.attr('data-interval', false)
