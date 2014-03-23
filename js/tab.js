@@ -53,9 +53,9 @@
 
   Tab.prototype.activate = function (element, container, callback) {
     var $active    = container.find('> .active')
-    var transition = callback
-      && $.support.transition
-      && $active.hasClass('fade')
+    var transition = callback &&
+      $.support.transition &&
+      $active.hasClass('fade')
 
     function next() {
       $active

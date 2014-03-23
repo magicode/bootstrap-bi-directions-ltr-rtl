@@ -41,9 +41,9 @@
 
     this.interval && clearInterval(this.interval)
 
-    this.options.interval
-      && !this.paused
-      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
+    this.options.interval &&
+      !this.paused &&
+      (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
 
     return this
   }

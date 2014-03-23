@@ -21,9 +21,9 @@
     this.$body          = $('body')
     this.$scrollElement = this.$element.on('scroll.bs.scrollspy', process)
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
-    this.selector       = (this.options.target
-      || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
-      || '') + ' .nav li > a'
+    this.selector       = (this.options.target ||
+      ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) || //strip for ie7
+      '') + ' .nav li > a'
     this.offsets        = $([])
     this.targets        = $([])
     this.activeTarget   = null
@@ -53,10 +53,10 @@
         var href  = $el.data('target') || $el.attr('href')
         var $href = /^#./.test(href) && $(href)
 
-        return ($href
-          && $href.length
-          && $href.is(':visible')
-          && [[$href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href]]) || null
+        return ($href &&
+          $href.length &&
+          $href.is(':visible') &&
+          [[$href[offsetMethod]().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href]]) || null
       })
       .sort(function (a, b) { return a[0] - b[0] })
       .each(function () {
@@ -83,10 +83,10 @@
     }
 
     for (i = offsets.length; i--;) {
-      activeTarget !== targets[i]
-        && scrollTop >= offsets[i]
-        && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-        && this.activate(targets[i])
+      activeTarget !== targets[i] &&
+        scrollTop >= offsets[i] &&
+        (!offsets[i + 1] || scrollTop <= offsets[i + 1]) &&
+        this.activate(targets[i])
     }
   }
 

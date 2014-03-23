@@ -65,8 +65,8 @@
     var $e = this.$element
     var o  = this.options
 
-    return $e.attr('data-content')
-      || (typeof o.content === 'function' ?
+    return $e.attr('data-content') ||
+        (typeof o.content === 'function' ?
             o.content.call($e[0]) :
             o.content)
   }

@@ -148,19 +148,19 @@ $(function () {
     $.support.transition = false
 
     var $template = $(
-        '<div id="myCarousel" class="carousel" data-interval="1814">'
-      + '<div class="carousel-inner">'
-      + '<div class="item active">'
-      + '<img alt="">'
-      + '</div>'
-      + '<script type="text/x-metamorph" id="thingy"></script>'
-      + '<div class="item">'
-      + '<img alt="">'
-      + '</div>'
-      + '<div class="item">'
-      + '</div>'
-      + '</div>'
-      + '</div>'
+        '<div id="myCarousel" class="carousel" data-interval="1814">' +
+        '<div class="carousel-inner">' +
+        '<div class="item active">' +
+        '<img alt="">' +
+        '</div>' +
+        '<script type="text/x-metamorph" id="thingy"></script>' +
+        '<div class="item">' +
+        '<img alt="">' +
+        '</div>' +
+        '<div class="item">' +
+        '</div>' +
+        '</div>' +
+        '</div>'
     )
 
     $template.bootstrapCarousel()
