@@ -48,11 +48,14 @@
       $parent.detach().trigger('closed.bs.alert').remove()
     }
 
-    $.support.transition && $parent.hasClass('fade') ?
+    if ($.support.transition && $parent.hasClass('fade')) {
       $parent
         .one($.support.transition.end, removeElement)
-        .emulateTransitionEnd(150) :
+        .emulateTransitionEnd(150)
+    } else {
       removeElement()
+    }
+
   }
 
 

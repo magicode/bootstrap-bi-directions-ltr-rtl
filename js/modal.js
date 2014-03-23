@@ -83,13 +83,16 @@
 
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
-      transition ?
+      if (transition) {
         that.$element.find('.modal-dialog') // wait for modal to slide in
           .one($.support.transition.end, function () {
             that.$element.trigger('focus').trigger(e)
           })
-          .emulateTransitionEnd(300) :
+          .emulateTransitionEnd(300)
+      } else {
         that.$element.trigger('focus').trigger(e)
+      }
+
     })
   }
 
@@ -116,11 +119,14 @@
       .attr('aria-hidden', true)
       .off('click.dismiss.bs.modal')
 
-    $.support.transition && this.$element.hasClass('fade') ?
+    if ($.support.transition && this.$element.hasClass('fade')) {
       this.$element
         .one($.support.transition.end, $.proxy(this.hideModal, this))
-        .emulateTransitionEnd(300) :
+        .emulateTransitionEnd(300)
+    } else {
       this.hideModal()
+    }
+
   }
 
   Modal.prototype.enforceFocus = function () {
@@ -136,7 +142,9 @@
   Modal.prototype.escape = function () {
     if (this.isShown && this.options.keyboard) {
       this.$element.on('keyup.dismiss.bs.modal', $.proxy(function (e) {
-        e.which === 27 && this.hide()
+        if (e.which === 27) {
+          this.hide()
+        }
       }, this))
     } else if (!this.isShown) {
       this.$element.off('keyup.dismiss.bs.modal')
@@ -152,7 +160,9 @@
   }
 
   Modal.prototype.removeBackdrop = function () {
-    this.$backdrop && this.$backdrop.remove()
+    if (this.$backdrop) {
+      this.$backdrop.remove()
+    }
     this.$backdrop = null
   }
 
@@ -168,9 +178,13 @@
 
       this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
         if (e.target !== e.currentTarget) return
-        this.options.backdrop === 'static' ?
-          this.$element[0].focus.call(this.$element[0]) :
+
+        if (this.options.backdrop === 'static') {
+          this.$element[0].focus.call(this.$element[0])
+        } else {
           this.hide.call(this)
+        }
+
       }, this))
 
       if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
@@ -179,24 +193,30 @@
 
       if (!callback) return
 
-      doAnimate ?
+      if (doAnimate) {
         this.$backdrop
           .one($.support.transition.end, callback)
-          .emulateTransitionEnd(150) :
+          .emulateTransitionEnd(150)
+      } else {
         callback()
+      }
 
     } else if (!this.isShown && this.$backdrop) {
       this.$backdrop.removeClass('in')
 
       var callbackRemove = function () {
         that.removeBackdrop()
-        callback && callback()
+        if (callback) {
+          callback()
+        }
       }
-      $.support.transition && this.$element.hasClass('fade') ?
+      if ($.support.transition && this.$element.hasClass('fade')) {
         this.$backdrop
           .one($.support.transition.end, callbackRemove)
-          .emulateTransitionEnd(150) :
+          .emulateTransitionEnd(150)
+      } else {
         callbackRemove()
+      }
 
     } else if (callback) {
       callback()
@@ -270,7 +290,9 @@
 
     Plugin.call($target, option, this)
     $target.one('hide', function () {
-      $this.is(':visible') && $this.trigger('focus')
+      if ($this.is(':visible')) {
+        $this.trigger('focus')
+      }
     })
   })
 

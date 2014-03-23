@@ -76,14 +76,18 @@
         element.closest('li.dropdown').addClass('active')
       }
 
-      callback && callback()
+      if (callback) {
+        callback()
+      }
     }
 
-    transition ?
+    if (transition) {
       $active
         .one($.support.transition.end, next)
-        .emulateTransitionEnd(150) :
+        .emulateTransitionEnd(150)
+    } else {
       next()
+    }
 
     $active.removeClass('in')
   }

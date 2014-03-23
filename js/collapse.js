@@ -46,7 +46,9 @@
       var hasData = actives.data('bs.collapse')
       if (hasData && hasData.transitioning) return
       Plugin.call(actives, 'hide')
-      hasData || actives.data('bs.collapse', null)
+      if (!hasData) {
+        actives.data('bs.collapse', null)
+      }
     }
 
     var dimension = this.dimension()
