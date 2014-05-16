@@ -1,9 +1,8 @@
 {
-  "eqeqeq"  : true,
-  "latedef" : true,
+  "extends" : "../js/.jshintrc",
+  "browser" : false,
+  "es3"     : false,
+  "forin"   : false,
   "node"    : true,
-  "nonbsp"  : true,
-  "strict"  : true,
-  "undef"   : true,
-  "unused"  : true
+  "qunit"   : true
 }

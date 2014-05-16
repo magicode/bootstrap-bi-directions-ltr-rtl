@@ -1,20 +1,6 @@
 {
-  "asi"      : true,
-  "browser"  : true,
-  "eqeqeq"   : true,
-  "forin"    : true,
-  "jquery"   : true,
-  "latedef"  : true,
-  "node"     : true,
-  "nonbsp"   : true,
-  "strict"   : true,
-  "undef"    : true,
-  "unused"   : true,
-  "globals"  : {
-    "equal"  : true,
-    "ok"     : true,
-    "start"  : true,
-    "stop"   : true,
-    "test"   : true
-  }
+  "extends" : "../../.jshintrc",
+  "es3"     : false,
+  "node"    : true,
+  "qunit"   : true
 }
