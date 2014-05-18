@@ -159,10 +159,23 @@ module.exports = function (grunt) {
           outputSourceFiles: true,
           sourceMapURL: '<%= pkg.name %>.css.map',
           sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map',
-          modifyVars: { direction: 'rtl' }
+          modifyVars: { direction: 'ltr' }
         },
         files: {
           'dist/css/<%= pkg.name %>.css': 'less/bootstrap.less'
+        }
+      },
+      compileCoreRtl: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= pkg.name %>.rtl.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>.rtl.css.map',
+          modifyVars: { direction: 'rtl' }
+        },
+        files: {
+          'dist/css/<%= pkg.name %>.rtl.css': 'less/bootstrap.less'
         }
       },
       compileTheme: {
@@ -179,11 +192,11 @@ module.exports = function (grunt) {
       },
       minify: {
         options: {
-          cleancss: true,
-          modifyVars: { direction: 'rtl' }
+          cleancss: true
         },
         files: {
           'dist/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css',
+          'dist/css/<%= pkg.name %>.rtl.min.css': 'dist/css/<%= pkg.name %>.rtl.css',
           'dist/css/<%= pkg.name %>-theme.min.css': 'dist/css/<%= pkg.name %>-theme.css'
         }
       }
@@ -426,7 +439,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', ['concat', 'uglify']);
 
   // CSS distribution task.
-  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
+  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileCoreRtl', 'less:compileTheme']);
   grunt.registerTask('dist-css', ['less-compile', 'autoprefixer', 'usebanner', 'csscomb', 'less:minify', 'cssmin']);
 
   // Docs distribution task.
