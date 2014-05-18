@@ -170,12 +170,12 @@ module.exports = function (grunt) {
           strictMath: true,
           sourceMap: true,
           outputSourceFiles: true,
-          sourceMapURL: '<%= pkg.name %>.rtl.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>.rtl.css.map',
+          sourceMapURL: '<%= pkg.name %>-rtl.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>-rtl.css.map',
           modifyVars: { direction: 'rtl' }
         },
         files: {
-          'dist/css/<%= pkg.name %>.rtl.css': 'less/bootstrap.less'
+          'dist/css/<%= pkg.name %>-rtl.css': 'less/bootstrap.less'
         }
       },
       compileTheme: {
@@ -196,7 +196,7 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css',
-          'dist/css/<%= pkg.name %>.rtl.min.css': 'dist/css/<%= pkg.name %>.rtl.css',
+          'dist/css/<%= pkg.name %>-rtl.min.css': 'dist/css/<%= pkg.name %>-rtl.css',
           'dist/css/<%= pkg.name %>-theme.min.css': 'dist/css/<%= pkg.name %>-theme.css'
         }
       }
