@@ -58,8 +58,12 @@
 - glyphicon-italic
 - glyphicon-text-height
 - glyphicon-text-width
+- glyphicon-align-start
+- glyphicon-align-start
 - glyphicon-align-left
 - glyphicon-align-center
+- glyphicon-align-end
+- glyphicon-align-end
 - glyphicon-align-right
 - glyphicon-align-justify
 - glyphicon-list

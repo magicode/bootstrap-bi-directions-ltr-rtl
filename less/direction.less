@@ -1,0 +1,16 @@
+
+@direction: ~'';
+
+.direction-set(@d) when (@d = rtl) {
+  @start: right;
+  @end: left; 
+  body{ direction: rtl; }
+}
+
+.direction-set(@d) when (default()) {
+  @start: left;
+  @end: right; 
+  body{ direction: ltr; }
+}
+
+.direction-set(@direction);

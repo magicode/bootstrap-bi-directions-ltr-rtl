@@ -37,6 +37,12 @@
 // -------------------------
 
 .media {
+  > .pull-start {
+    margin-@{end}: 10px;
+  }
+  > .pull-end {
+    margin-@{start}: 10px;
+  }
   > .pull-left {
     margin-right: 10px;
   }
@@ -51,6 +57,6 @@
 
 // Undo default ul/ol styles
 .media-list {
-  padding-left: 0;
+  padding-@{start}: 0;
   list-style: none;
 }

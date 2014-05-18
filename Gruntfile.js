@@ -158,7 +158,8 @@ module.exports = function (grunt) {
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: '<%= pkg.name %>.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map',
+          modifyVars: { direction: 'rtl' }
         },
         files: {
           'dist/css/<%= pkg.name %>.css': 'less/bootstrap.less'
@@ -178,7 +179,8 @@ module.exports = function (grunt) {
       },
       minify: {
         options: {
-          cleancss: true
+          cleancss: true,
+          modifyVars: { direction: 'rtl' }
         },
         files: {
           'dist/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css',

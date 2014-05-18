@@ -16,7 +16,7 @@
   > .item {
     display: none;
     position: relative;
-    .transition(.6s ease-in-out left);
+    .transition(.6s ease-in-out @start);
 
     // Account for jankitude on images
     > img,
@@ -33,7 +33,7 @@
   }
 
   > .active {
-    left: 0;
+    @{start}: 0;
   }
 
   > .next,
@@ -44,10 +44,14 @@
   }
 
   > .next {
-    left: 100%;
+    @{start}: 100%;
   }
   > .prev {
-    left: -100%;
+    @{start}: -100%;
+  }
+  > .next.start ,
+  > .prev.end {
+    @{start}: 0;
   }
   > .next.left,
   > .prev.right {
@@ -55,10 +59,10 @@
   }
 
   > .active.left {
-    left: -100%;
+    @{start}: -100%;
   }
   > .active.right {
-    left: 100%;
+    @{start}: 100%;
   }
 
 }
@@ -69,7 +73,7 @@
 .carousel-control {
   position: absolute;
   top: 0;
-  left: 0;
+  @{start}: 0;
   bottom: 0;
   width: @carousel-control-width;
   .opacity(@carousel-control-opacity);
@@ -81,12 +85,24 @@
   // animation if you trip this while in the middle of another animation.
 
   // Set gradients for backgrounds
+  &.start {
+    @{end}: auto;
+    @{start}: 0;
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+  }
   &.left {
+    right: auto;
+    left: 0;
     #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
   }
   &.right {
     left: auto;
     right: 0;
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+  }
+  &.end{
+    @{start}: auto;
+    @{end}: 0;
     #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
   }
 
@@ -102,7 +118,9 @@
   // Toggles
   .icon-prev,
   .icon-next,
+  .glyphicon-chevron-start ,
   .glyphicon-chevron-left,
+  .glyphicon-chevron-end ,
   .glyphicon-chevron-right {
     position: absolute;
     top: 50%;
@@ -114,10 +132,18 @@
     left: 50%;
     margin-left: -10px;
   }
+  .glyphicon-chevron-start {
+    @{start}: 50%;
+    margin-@{start}: -10px;
+  }
   .icon-next,
   .glyphicon-chevron-right {
     right: 50%;
     margin-right: -10px;
+  }
+  .glyphicon-chevron-end {
+    @{end}: 50%;
+    margin-@{end}: -10px;
   }
   .icon-prev,
   .icon-next {
@@ -148,11 +174,11 @@
 .carousel-indicators {
   position: absolute;
   bottom: 10px;
-  left: 50%;
+  @{start}: 50%;
   z-index: 15;
   width: 60%;
-  margin-left: -30%;
-  padding-left: 0;
+  margin-@{start}: -30%;
+  padding-@{start}: 0;
   list-style: none;
   text-align: center;
 
@@ -190,8 +216,8 @@
 // Hidden by default for smaller viewports
 .carousel-caption {
   position: absolute;
-  left: 15%;
-  right: 15%;
+  @{start}: 15%;
+  @{end}: 15%;
   bottom: 20px;
   z-index: 10;
   padding-top: 20px;
@@ -210,7 +236,9 @@
 
   // Scale up the controls a smidge
   .carousel-control {
+    .glyphicon-chevron-start,
     .glyphicon-chevron-left,
+    .glyphicon-chevron-end,
     .glyphicon-chevron-right,
     .icon-prev,
     .icon-next {
@@ -221,18 +249,18 @@
     }
     .glyphicon-chevron-left,
     .icon-prev {
-      margin-left: -15px;
+      margin-@{start}: -15px;
     }
     .glyphicon-chevron-right,
     .icon-next {
-      margin-right: -15px;
+      margin-@{end}: -15px;
     }
   }
 
   // Show and left align the captions
   .carousel-caption {
-    left: 20%;
-    right: 20%;
+    @{start}: 20%;
+    @{end}: 20%;
     padding-bottom: 30px;
   }
 

@@ -19,8 +19,8 @@
       // Prevent columns from collapsing when empty
       min-height: 1px;
       // Inner gutter via padding
-      padding-left:  (@grid-gutter-width / 2);
-      padding-right: (@grid-gutter-width / 2);
+      padding-@{start}:  (@grid-gutter-width / 2);
+      padding-@{end}: (@grid-gutter-width / 2);
     }
   }
   .col(1); // kickstart it
@@ -37,7 +37,7 @@
   }
   .col(@index, @list) when (@index > @grid-columns) { // terminal
     @{list} {
-      float: left;
+      float: @start;
     }
   }
   .col(1); // kickstart it
@@ -50,27 +50,27 @@
 }
 .calc-grid-column(@index, @class, @type) when (@type = push) and (@index > 0) {
   .col-@{class}-push-@{index} {
-    left: percentage((@index / @grid-columns));
+    @{start}: percentage((@index / @grid-columns));
   }
 }
 .calc-grid-column(@index, @class, @type) when (@type = push) and (@index = 0) {
   .col-@{class}-push-0 {
-    left: auto;
+    @{start}: auto;
   }
 }
 .calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > 0) {
   .col-@{class}-pull-@{index} {
-    right: percentage((@index / @grid-columns));
+    @{end}: percentage((@index / @grid-columns));
   }
 }
 .calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = 0) {
   .col-@{class}-pull-0 {
-    right: auto;
+    @{end}: auto;
   }
 }
 .calc-grid-column(@index, @class, @type) when (@type = offset) {
   .col-@{class}-offset-@{index} {
-    margin-left: percentage((@index / @grid-columns));
+    margin-@{start}: percentage((@index / @grid-columns));
   }
 }
 
