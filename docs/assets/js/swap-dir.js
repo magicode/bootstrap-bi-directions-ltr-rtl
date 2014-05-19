@@ -7,7 +7,7 @@
     if (!stylesheet){
       var linkList = document.getElementsByTagName('link');
       for (var i = 0;i < linkList.length ;i++){
-        if ((/bootstrap/).test(linkList[i].href)){
+        if ((/bootstrap/).test(linkList[i].href) && 'stylesheet' == linkList[i].rel){
           stylesheet = linkList[i];
           break;
         }
