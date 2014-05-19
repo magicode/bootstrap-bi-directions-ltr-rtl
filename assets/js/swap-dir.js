@@ -15,9 +15,9 @@
     }
     if (!stylesheet) return;
     if ((/\-rtl/i).test(stylesheet.href))
-      stylesheet.href = stylesheet.href.replace('-rtl','');
+      stylesheet.href = stylesheet.href.replace(/\-rtl/i,'');
     else
-      stylesheet.href = stylesheet.href.replace('bootstrap','bootstrap-rtl');
+      stylesheet.href = stylesheet.href.replace(/bootstrap([^\/]*css)/,'bootstrap-rtl$1');
   }
   window.addEventListener('load',function() {
     var swapDirectionDiv = document.createElement('div');
