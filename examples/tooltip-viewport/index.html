@@ -8,13 +8,13 @@
     <meta name="author" content="">
     <link rel="icon" href="../../assets/ico/favicon.ico">
 
-    <title>Sticky Footer Template for Bootstrap</title>
+    <title>Tooltip Viewport Example for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="sticky-footer.css" rel="stylesheet">
+    <link href="tooltip-viewport.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -32,24 +32,29 @@
 
   <body>
 
-    <!-- Begin page content -->
-    <div class="container">
-      <div class="page-header">
-        <h1>Sticky footer</h1>
-      </div>
-      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-      <p>Use <a href="../sticky-footer-navbar">the sticky footer with a fixed navbar</a> if need be, too.</p>
-    </div>
+    <button class="btn pull-right tooltip-bottom" title="This should be shifted to the left">Shift Left</button>
+    <button class="btn tooltip-bottom" title="This should be shifted to the right">Shift Right</button>
+    <button class="btn tooltip-right" title="This should be shifted down">Shift Down</button>
 
-    <div class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
+    <div class="placeholder">There is a button down there ↓</div>
+
+    <button class="btn tooltip-right" title="This should be shifted up">Shift Up</button>
+
+    <div class="container-viewport">
+      <button class="btn tooltip-viewport-bottom" title="This should be shifted to the left">Shift Left</button>
+      <button class="btn tooltip-viewport-right" title="This should be shifted down">Shift Down</button>
+
+      <button class="btn pull-right tooltip-viewport-bottom" title="This should be shifted to the right">Shift Right</button>
+
+      <button class="btn tooltip-viewport-right btn-bottom" title="This should be shifted up">Shift Up</button>
     </div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="tooltip-viewport.js"></script>
   </body>
 </html>
