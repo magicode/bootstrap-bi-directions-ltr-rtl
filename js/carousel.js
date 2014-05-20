@@ -94,7 +94,7 @@
     var $active   = this.$element.find('.item.active')
     var $next     = next || $active[type]()
     var isCycling = this.interval
-    var direction = type == 'next' ? 'left' : 'right'
+    var direction = type == 'next' ? 'start' : 'end'
     var fallback  = type == 'next' ? 'first' : 'last'
     var that      = this
 

@@ -70,7 +70,7 @@ $(function () {
     $(template).on('slide.bs.carousel', function (e) {
       e.preventDefault()
       ok(e.direction)
-      ok(e.direction === 'right' || e.direction === 'left')
+      ok(e.direction === 'end' || e.direction === 'start')
       start()
     }).bootstrapCarousel('next')
   })
@@ -82,7 +82,7 @@ $(function () {
     $(template).on('slid.bs.carousel', function (e) {
       e.preventDefault()
       ok(e.direction)
-      ok(e.direction === 'right' || e.direction === 'left')
+      ok(e.direction === 'end' || e.direction === 'start')
       start()
     }).bootstrapCarousel('next')
   })

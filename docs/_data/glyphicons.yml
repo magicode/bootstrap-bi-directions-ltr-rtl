@@ -59,10 +59,8 @@
 - glyphicon-text-height
 - glyphicon-text-width
 - glyphicon-align-start
-- glyphicon-align-start
 - glyphicon-align-left
 - glyphicon-align-center
-- glyphicon-align-end
 - glyphicon-align-end
 - glyphicon-align-right
 - glyphicon-align-justify
@@ -88,6 +86,8 @@
 - glyphicon-fast-forward
 - glyphicon-step-forward
 - glyphicon-eject
+- glyphicon-chevron-start
+- glyphicon-chevron-end
 - glyphicon-chevron-left
 - glyphicon-chevron-right
 - glyphicon-plus-sign
@@ -100,6 +100,8 @@
 - glyphicon-remove-circle
 - glyphicon-ok-circle
 - glyphicon-ban-circle
+- glyphicon-arrow-start
+- glyphicon-arrow-end
 - glyphicon-arrow-left
 - glyphicon-arrow-right
 - glyphicon-arrow-up
@@ -133,10 +135,14 @@
 - glyphicon-certificate
 - glyphicon-thumbs-up
 - glyphicon-thumbs-down
+- glyphicon-hand-start
+- glyphicon-hand-end
 - glyphicon-hand-right
 - glyphicon-hand-left
 - glyphicon-hand-up
 - glyphicon-hand-down
+- glyphicon-circle-arrow-start
+- glyphicon-circle-arrow-end
 - glyphicon-circle-arrow-right
 - glyphicon-circle-arrow-left
 - glyphicon-circle-arrow-up

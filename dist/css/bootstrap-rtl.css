@@ -532,6 +532,12 @@ th {
 .glyphicon-eject:before {
   content: "\e078";
 }
+.glyphicon-chevron-start:before {
+  content: "\e080";
+}
+.glyphicon-chevron-end:before {
+  content: "\e079";
+}
 .glyphicon-chevron-left:before {
   content: "\e079";
 }
@@ -567,6 +573,12 @@ th {
 }
 .glyphicon-ban-circle:before {
   content: "\e090";
+}
+.glyphicon-arrow-start:before {
+  content: "\e092";
+}
+.glyphicon-arrow-end:before {
+  content: "\e091";
 }
 .glyphicon-arrow-left:before {
   content: "\e091";
@@ -667,6 +679,12 @@ th {
 .glyphicon-thumbs-down:before {
   content: "\e126";
 }
+.glyphicon-hand-start:before {
+  content: "\e127";
+}
+.glyphicon-hand-end:before {
+  content: "\e128";
+}
 .glyphicon-hand-right:before {
   content: "\e127";
 }
@@ -678,6 +696,12 @@ th {
 }
 .glyphicon-hand-down:before {
   content: "\e130";
+}
+.glyphicon-circle-arrow-start:before {
+  content: "\e131";
+}
+.glyphicon-circle-arrow-end:before {
+  content: "\e132";
 }
 .glyphicon-circle-arrow-right:before {
   content: "\e131";
@@ -1363,6 +1387,8 @@ kbd,
 pre,
 samp {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  direction: ltr;
 }
 code {
   padding: 2px 4px;
@@ -5757,9 +5783,15 @@ button.close {
   left: 0;
 }
 .carousel-inner > .active.left {
-  right: -100%;
+  left: -100%;
 }
 .carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-inner > .active.start {
+  right: -100%;
+}
+.carousel-inner > .active.end {
   right: 100%;
 }
 .carousel-control {
@@ -5784,18 +5816,18 @@ button.close {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
   background-repeat: repeat-x;
 }
-.carousel-control.left {
-  right: auto;
-  left: 0;
+.carousel-control.right {
+  right: 0;
+  left: auto;
   background-image: -webkit-linear-gradient(right, color-stop(rgba(0, 0, 0, .5) 0%), color-stop(rgba(0, 0, 0, .0001) 100%));
   background-image:      -o-linear-gradient(right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
   background-image:         linear-gradient(to left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
   background-repeat: repeat-x;
 }
-.carousel-control.right {
-  right: 0;
-  left: auto;
+.carousel-control.left {
+  right: auto;
+  left: 0;
   background-image: -webkit-linear-gradient(right, color-stop(rgba(0, 0, 0, .0001) 0%), color-stop(rgba(0, 0, 0, .5) 100%));
   background-image:      -o-linear-gradient(right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
   background-image:         linear-gradient(to left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);

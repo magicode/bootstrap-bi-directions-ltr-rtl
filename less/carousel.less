@@ -49,6 +49,7 @@
   > .prev {
     @{start}: -100%;
   }
+
   > .next.start ,
   > .prev.end {
     @{start}: 0;
@@ -59,9 +60,16 @@
   }
 
   > .active.left {
-    @{start}: -100%;
+    left: -100%;
   }
   > .active.right {
+    left: 100%;
+  }
+
+  > .active.start {
+    @{start}: -100%;
+  }
+  > .active.end {
     @{start}: 100%;
   }
 
@@ -90,14 +98,14 @@
     @{start}: 0;
     #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
   }
-  &.left {
-    right: auto;
-    left: 0;
+  &.@{start} {
+    @{end}: auto;
+    @{start}: 0;
     #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
   }
-  &.right {
-    left: auto;
-    right: 0;
+  &.@{end} {
+    @{start}: auto;
+    @{end}: 0;
     #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
   }
   &.end{

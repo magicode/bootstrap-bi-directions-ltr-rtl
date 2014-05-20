@@ -536,6 +536,12 @@ th {
 .glyphicon-eject:before {
   content: "\e078";
 }
+.glyphicon-chevron-start:before {
+  content: "\e079";
+}
+.glyphicon-chevron-end:before {
+  content: "\e080";
+}
 .glyphicon-chevron-left:before {
   content: "\e079";
 }
@@ -571,6 +577,12 @@ th {
 }
 .glyphicon-ban-circle:before {
   content: "\e090";
+}
+.glyphicon-arrow-start:before {
+  content: "\e091";
+}
+.glyphicon-arrow-end:before {
+  content: "\e092";
 }
 .glyphicon-arrow-left:before {
   content: "\e091";
@@ -671,6 +683,12 @@ th {
 .glyphicon-thumbs-down:before {
   content: "\e126";
 }
+.glyphicon-hand-start:before {
+  content: "\e128";
+}
+.glyphicon-hand-end:before {
+  content: "\e127";
+}
 .glyphicon-hand-right:before {
   content: "\e127";
 }
@@ -682,6 +700,12 @@ th {
 }
 .glyphicon-hand-down:before {
   content: "\e130";
+}
+.glyphicon-circle-arrow-start:before {
+  content: "\e132";
+}
+.glyphicon-circle-arrow-end:before {
+  content: "\e131";
 }
 .glyphicon-circle-arrow-right:before {
   content: "\e131";
@@ -1367,6 +1391,8 @@ kbd,
 pre,
 samp {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  direction: ltr;
 }
 code {
   padding: 2px 4px;
@@ -5788,6 +5814,12 @@ button.close {
   left: -100%;
 }
 .carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-inner > .active.start {
+  left: -100%;
+}
+.carousel-inner > .active.end {
   left: 100%;
 }
 .carousel-control {
