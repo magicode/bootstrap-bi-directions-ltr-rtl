@@ -14,3 +14,11 @@
 }
 
 .direction-set(@direction);
+
+.direction-select(@a ;@b) when (@direction = rtl) {
+	@value: @b;
+}
+
+.direction-select(@a ;@b) when (default()) {
+	@value: @a;
+}

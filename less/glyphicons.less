@@ -88,16 +88,10 @@
 .glyphicon-italic                 { &:before { content: "\e049"; } }
 .glyphicon-text-height            { &:before { content: "\e050"; } }
 .glyphicon-text-width             { &:before { content: "\e051"; } }
-.glyphicon-align-start when(@start = left)
-	{ &:before { content: "\e052"; } }
-.glyphicon-align-start when(@start = right)
-	{ &:before { content: "\e054"; } }
+.glyphicon-align-start            { &:before { .direction-select("\e052" ;"\e054");content: @value; } }
 .glyphicon-align-left             { &:before { content: "\e052"; } }
 .glyphicon-align-center           { &:before { content: "\e053"; } }
-.glyphicon-align-end when(@end = left)
-	{ &:before { content: "\e052"; } }
-.glyphicon-align-end when(@end = right)
- 	{ &:before { content: "\e054"; } }
+.glyphicon-align-end              { &:before { .direction-select("\e054" ;"\e052");content: @value; } }
 .glyphicon-align-right            { &:before { content: "\e054"; } }
 .glyphicon-align-justify          { &:before { content: "\e055"; } }
 .glyphicon-list                   { &:before { content: "\e056"; } }
@@ -122,6 +116,8 @@
 .glyphicon-fast-forward           { &:before { content: "\e076"; } }
 .glyphicon-step-forward           { &:before { content: "\e077"; } }
 .glyphicon-eject                  { &:before { content: "\e078"; } }
+.glyphicon-chevron-start          { &:before { .direction-select("\e079" ;"\e080");content: @value; } }
+.glyphicon-chevron-end            { &:before { .direction-select("\e080" ;"\e079");content: @value; } }
 .glyphicon-chevron-left           { &:before { content: "\e079"; } }
 .glyphicon-chevron-right          { &:before { content: "\e080"; } }
 .glyphicon-plus-sign              { &:before { content: "\e081"; } }
@@ -134,6 +130,8 @@
 .glyphicon-remove-circle          { &:before { content: "\e088"; } }
 .glyphicon-ok-circle              { &:before { content: "\e089"; } }
 .glyphicon-ban-circle             { &:before { content: "\e090"; } }
+.glyphicon-arrow-start            { &:before { .direction-select("\e091" ;"\e092");content: @value; } }
+.glyphicon-arrow-end              { &:before { .direction-select("\e092" ;"\e091");content: @value; } }
 .glyphicon-arrow-left             { &:before { content: "\e091"; } }
 .glyphicon-arrow-right            { &:before { content: "\e092"; } }
 .glyphicon-arrow-up               { &:before { content: "\e093"; } }
@@ -167,10 +165,14 @@
 .glyphicon-certificate            { &:before { content: "\e124"; } }
 .glyphicon-thumbs-up              { &:before { content: "\e125"; } }
 .glyphicon-thumbs-down            { &:before { content: "\e126"; } }
+.glyphicon-hand-start             { &:before { .direction-select("\e128" ;"\e127");content: @value; } }
+.glyphicon-hand-end               { &:before { .direction-select("\e127" ;"\e128");content: @value; } }
 .glyphicon-hand-right             { &:before { content: "\e127"; } }
 .glyphicon-hand-left              { &:before { content: "\e128"; } }
 .glyphicon-hand-up                { &:before { content: "\e129"; } }
 .glyphicon-hand-down              { &:before { content: "\e130"; } }
+.glyphicon-circle-arrow-start    { &:before { .direction-select("\e132" ;"\e131");content: @value; } }
+.glyphicon-circle-arrow-end       { &:before { .direction-select("\e131" ;"\e132");content: @value; } }
 .glyphicon-circle-arrow-right     { &:before { content: "\e131"; } }
 .glyphicon-circle-arrow-left      { &:before { content: "\e132"; } }
 .glyphicon-circle-arrow-up        { &:before { content: "\e133"; } }
